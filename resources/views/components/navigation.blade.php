@@ -12,6 +12,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/posts">Posts</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/createpost">Create Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/poststable">Posts Table</a>
+          </li>
           
         </ul>
       </div>
