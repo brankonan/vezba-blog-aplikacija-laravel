@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ata-bs-theme="dark">
 
     @include("components.head")
 <body>

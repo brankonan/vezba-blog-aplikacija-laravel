@@ -8,5 +8,9 @@
     <h1>{{ $post->title }}</h1>
     <p>{{ $post->body }}</p>
     <small>{{ $post->category }}</small>
+
+    @include("components.createcomment")
+    @include("components.comments")
+
 </div>
 </div>

@@ -2,41 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\CreateCommentRequest;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('pages.posts', compact('posts'));
-    }
-
-    public function showCreatePost(){
-        return view('pages.createpost');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreatePostRequest $request)
+    public function store(CreateCommentRequest $request)
     {
-        $post = Post::create($request->all());
-        return redirect('/createpost')->with('status', 'Post created successfully!');
+        $comment = Comment::create([
+            'body' =>$request->body,
+            'post_id' => $request->post_id
+        ]);
+        $post = Post::find($request->post_id);
+        return redirect('/posts/' . $post->title)->with('status', 'Comment created successfully!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $title)
+    public function show(string $id)
     {
-        $post = Post::where("title", $title)->first();
-        return view('pages.post', compact("post"));
+        //
     }
 
     /**
